@@ -184,7 +184,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== RCIENCE BADGE ===== */
+/* ===== SCIENCE BADGE ===== */
 .science-badge {
   display: inline-flex;
   align-items: center;
@@ -557,14 +557,14 @@ body {
 // ===== DATA =====
 const PRAYER_LINES = [
   { tibetan: "HUNG", english: "", isMantra: true },
-  { tibetan: "Ãgyen yulgyi nupchang tsam", english: "In the north-west of the country of Uddiyana," },
-  { tibetan: "PÃ©ma kÃ©sar dongpo la", english: "In the heart of a lotus flower," },
-  { tibetan: "Yamtsen chokgi ngÃ¶drup nyÃ©", english: "You are endowed with the supreme, wondrous siddhis," },
-  { tibetan: "PÃ©ma jungne shyÃ©su drak", english: "And are renowned as the Lotus Born." },
-  { tibetan: "Khordu khandro mangpÃ¶ kor", english: "Surrounded by a host of many dakinis" },
-  { tibetan: "ChyÃ©chyi jÃ©su dagdrup kyi", english: "I will practice by following your example." },
+  { tibetan: "Ögyen yulgyi nupchang tsam", english: "In the north-west of the country of Uddiyana," },
+  { tibetan: "Péma késar dongpo la", english: "In the heart of a lotus flower," },
+  { tibetan: "Yamtsen chokgi ngödrup nyé", english: "You are endowed with the supreme, wondrous siddhis," },
+  { tibetan: "Péma jungne shyésu drak", english: "And are renowned as the Lotus Born." },
+  { tibetan: "Khordu khandro mangpö kor", english: "Surrounded by a host of many dakinis" },
+  { tibetan: "Chyéchyi jésu dagdrup kyi", english: "I will practice by following your example." },
   { tibetan: "Chingyi lapchir sheksu sol", english: "Please approach and grant your blessings!" },
-  { tibetan: "GURU PÃMA SIDDHI HUNG", english: "", isMantra: true },
+  { tibetan: "GURU PÉMA SIDDHI HUNG", english: "", isMantra: true },
 ];
 const CONTENT_LINES = PRAYER_LINES.filter(l => !l.isMantra);
 const VAJRA_MANTRA = "OM AH HUNG BENZAR GURU PEMA SIDDHI HUNG";
@@ -735,7 +735,7 @@ function renderAudio() {
     <div class="audio-section">
       <div class="text-center">
         <label style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--ink);color:white;border-radius:10px;cursor:pointer;font-size:0.9rem;font-weight:600;font-family:var(--font-sans)">
-          âª Load Audio Recording
+          ♪ Load Audio Recording
           <input type="file" accept="audio/*" id="audioFileInput" style="display:none" />
         </label>
         <div class="hint-text mt-8">Load the .WAV or .MP3 recitation to listen while you practice</div>
@@ -756,14 +756,14 @@ function renderSessionBar() {
 
 function renderNav() {
   const modes = [
-    { id: 'read', icon: 'ð', label: 'Study' },
-    { id: 'fade', icon: 'ð«', label: 'Fade' },
-    { id: 'hints', icon: 'ð¡', label: 'Hints' },
-    { id: 'fill', icon: 'âï¸', label: 'Recall' },
-    { id: 'match', icon: 'ð', label: 'Match' },
-    { id: 'order', icon: 'ð', label: 'Order' },
-    { id: 'spaced', icon: 'ð§ ', label: 'Review' },
-    { id: 'recite', icon: 'ð', label: 'Recite' },
+    { id: 'read', icon: '📖', label: 'Study' },
+    { id: 'fade', icon: '🌫', label: 'Fade' },
+    { id: 'hints', icon: '💡', label: 'Hints' },
+    { id: 'fill', icon: '✏️', label: 'Recall' },
+    { id: 'match', icon: '🔗', label: 'Match' },
+    { id: 'order', icon: '📋', label: 'Order' },
+    { id: 'spaced', icon: '🧠', label: 'Review' },
+    { id: 'recite', icon: '🙏', label: 'Recite' },
   ];
   return `
     <div class="nav">
@@ -793,7 +793,7 @@ function renderMode() {
 // ===== READ MODE =====
 function renderRead() {
   return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Multi-modal encoding â read, listen, absorb</div>
+    <div class="science-badge"><span class="sci-icon">📚</span> Multi-modal encoding — read, listen, absorb</div>
     ${PRAYER_LINES.map((l, i) => `
       <div class="prayer-line ${l.isMantra ? 'mantra' : ''}">
         <div class="tibetan">${l.tibetan}</div>
@@ -814,7 +814,7 @@ function renderRead() {
 function renderFade() {
   const maxLevel = 6;
   return `
-    <div class="science-badge"><span class="sci-icon">ð§ª</span> Desirable difficulty â progressive cue removal</div>
+    <div class="science-badge"><span class="sci-icon">🧪</span> Desirable difficulty — progressive cue removal</div>
     <div class="text-center mb-12 hint-text">Level ${state.fadeLevel}: ${
       state.fadeLevel === 0 ? 'Full text visible' :
       state.fadeLevel <= 2 ? 'Words beginning to fade' :
@@ -825,7 +825,7 @@ function renderFade() {
     <div class="level-row">
       ${Array.from({length: maxLevel + 1}, (_, i) => `
         <button class="level-btn ${state.fadeLevel === i ? 'active' : ''}" data-fade="${i}">
-          ${i === 0 ? 'â' : i === maxLevel ? 'ð' : i}
+          ${i === 0 ? '☀' : i === maxLevel ? '🌑' : i}
         </button>
       `).join('')}
     </div>
@@ -857,7 +857,7 @@ function renderFade() {
 // ===== FIRST-LETTER HINTS MODE =====
 function renderHints() {
   return `
-    <div class="science-badge"><span class="sci-icon">ð¤</span> Retrieval cues â first-letter prompting</div>
+    <div class="science-badge"><span class="sci-icon">🔤</span> Retrieval cues — first-letter prompting</div>
     <div class="text-center mb-16 hint-text">Only the first letter of each word is shown. Try to recall the full words aloud.</div>
     ${PRAYER_LINES.map((l, li) => {
       if (l.isMantra) {
@@ -865,7 +865,7 @@ function renderHints() {
       }
       const words = l.tibetan.split(' ');
       const hintHtml = words.map(w => {
-        return `<span class="hint-word"><span class="hint-visible">${w[0]}</span><span class="hint-hidden">${'Â·'.repeat(w.length - 1)}</span></span>`;
+        return `<span class="hint-word"><span class="hint-visible">${w[0]}</span><span class="hint-hidden">${'·'.repeat(w.length - 1)}</span></span>`;
       }).join('&nbsp; ');
       return `
         <div class="prayer-line">
@@ -907,7 +907,7 @@ function renderFill() {
   }).join(' ');
 
   return `
-    <div class="science-badge"><span class="sci-icon">ð§ </span> Retrieval practice â active recall of missing words</div>
+    <div class="science-badge"><span class="sci-icon">🧠</span> Retrieval practice — active recall of missing words</div>
     <div class="text-center mb-16">
       <div class="english" style="font-size:0.9rem">${line.english}</div>
     </div>
@@ -916,7 +916,7 @@ function renderFill() {
     </div>
     ${!state.fillResult ? `
       <div class="text-center">
-        <input class="text-input" id="fillInput" type="text" placeholder="Type the missing wordâ¦" value="${state.fillInput}" autocomplete="off" autocapitalize="off" spellcheck="false"/>
+        <input class="text-input" id="fillInput" type="text" placeholder="Type the missing word…" value="${state.fillInput}" autocomplete="off" autocapitalize="off" spellcheck="false"/>
         <div class="btn-row">
           <button class="btn btn-ghost" data-action="fill-hint">Show first letter</button>
           <button class="btn btn-primary" data-action="fill-check" ${!state.fillInput.trim() ? 'disabled' : ''}>Check</button>
@@ -925,10 +925,10 @@ function renderFill() {
     ` : `
       <div class="text-center">
         <div class="feedback ${state.fillResult === 'correct' ? 'feedback-correct' : 'feedback-incorrect'}">
-          ${state.fillResult === 'correct' ? 'â Correct!' : `â The word was: ${words[bi]}`}
+          ${state.fillResult === 'correct' ? '✓ Correct!' : `✗ The word was: ${words[bi]}`}
         </div>
         <div class="btn-row">
-          <button class="btn btn-primary" data-action="fill-next">Next â</button>
+          <button class="btn btn-primary" data-action="fill-next">Next →</button>
         </div>
       </div>
     `}
@@ -948,7 +948,7 @@ function renderMatch() {
   if (state.matchTibetanOrder.length === 0) initMatch();
 
   return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Elaborative encoding â connect sound to meaning</div>
+    <div class="science-badge"><span class="sci-icon">🔗</span> Elaborative encoding — connect sound to meaning</div>
     <div class="text-center mb-16 hint-text">Tap a Tibetan line, then tap its English meaning.</div>
     ${state.matchComplete ? `
       <div class="text-center">
@@ -999,7 +999,7 @@ function renderOrder() {
   if (state.orderShuffled.length === 0 && !state.orderComplete) initOrder();
 
   return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Sequential recall â reconstruct the order</div>
+    <div class="science-badge"><span class="sci-icon">📋</span> Sequential recall — reconstruct the order</div>
     <div class="text-center mb-16 hint-text">Tap lines in the correct order, first to last.</div>
     ${state.orderPlaced.length > 0 ? `
       <div style="padding:12px 16px;background:var(--cream);border-radius:10px;margin-bottom:16px">
@@ -1037,9 +1037,9 @@ function renderSpaced() {
 
   if (state.srSessionDone) {
     return `
-      <div class="science-badge"><span class="sci-icon">ð§ </span> Spaced retrieval â all lines reviewed!</div>
+      <div class="science-badge"><span class="sci-icon">🧠</span> Spaced retrieval — all lines reviewed!</div>
       <div class="text-center">
-        <div style="font-size:2.5rem;margin:16px 0">ð</div>
+        <div style="font-size:2.5rem;margin:16px 0">🎉</div>
         <div style="font-family:var(--font-serif);font-size:1.2rem;font-weight:600;margin-bottom:8px">Session Complete</div>
         <div class="hint-text">All 7 lines moved to "known" status. Great work.</div>
         <div class="btn-row"><button class="btn btn-gold" data-action="sr-reset">Start New Round</button></div>
@@ -1057,7 +1057,7 @@ function renderSpaced() {
   state.srQueue.forEach(c => boxCounts[c.box]++);
 
   return `
-    <div class="science-badge"><span class="sci-icon">ð§ </span> Spaced retrieval â adaptive difficulty scheduling</div>
+    <div class="science-badge"><span class="sci-icon">🧠</span> Spaced retrieval — adaptive difficulty scheduling</div>
     <div style="display:flex;gap:8px;justify-content:center;margin-bottom:16px">
       ${boxLabels.map((label, i) => `
         <div style="text-align:center">
@@ -1074,7 +1074,7 @@ function renderSpaced() {
     </div>
     <div class="text-center mb-20">
       <div class="english" style="font-size:1rem;margin-bottom:12px">${line.english}</div>
-      <div style="font-size:0.78rem;color:var(--ink-light)">â What is the Tibetan for this line?</div>
+      <div style="font-size:0.78rem;color:var(--ink-light)">↑ What is the Tibetan for this line?</div>
     </div>
     ${state.srShowAnswer ? `
       <div class="text-center mb-16">
@@ -1099,7 +1099,7 @@ function renderRecite() {
   const malaProgress = Math.min(state.reciteCount / malaTarget * 100, 100);
 
   return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Focused recitation â intentional, embodied practice</div>
+    <div class="science-badge"><span class="sci-icon">🙏</span> Focused recitation — intentional, embodied practice</div>
     <div class="text-center mb-12 hint-text">
       Recite aloud with devotion. Tap the lotus after each recitation.
     </div>
@@ -1114,7 +1114,7 @@ function renderRecite() {
     ` : `
       <div class="text-center" style="padding:30px 0">
         <div style="font-family:var(--font-serif);font-size:1.1rem;color:var(--ink-light);font-style:italic">
-          Text hidden â recite from memory
+          Text hidden — recite from memory
         </div>
       </div>
     `}
@@ -1290,1311 +1290,10 @@ function handleMatchClick(type, idx) {
     state.matchSelectedType = type;
   } else {
     if (state.matchSelectedType === type) {
-      // Same column â switch selection
+      // Same column — switch selection
       state.matchSelected = idx;
     } else {
-      // Different columns â check match
-      const tibIdx = type === 'tibetan' ? idx : state.matchSelected;
-      const engIdx = type === 'english' ? idx : state.matchSelected;
-      if (tibIdx === engIdx) {
-        // Correct match
-        state.matchMatched.push(tibIdx);
-        state.correct++;
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Seven-Line Supplication</title>
-<style>
-/* ===== RESET & BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --gold: #c9a84c;
-  --gold-light: #e8d48b;
-  --gold-dark: #8b6914;
-  --ink: #1a1a2e;
-  --ink-light: #33334d;
-  --cream: #faf6ee;
-  --cream-dark: #f0e8d8;
-  --parchment: #fdfbf5;
-  --ruby: #8b2252;
-  --jade: #2e7d5b;
-  --correct: #2e7d5b;
-  --incorrect: #c0392b;
-  --radius: 14px;
-  --shadow: 0 4px 24px rgba(26,26,46,0.08);
-  --shadow-lg: 0 8px 40px rgba(26,26,46,0.12);
-  --font-serif: 'Georgia', 'Times New Roman', 'Noto Serif', serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-html { font-size: 18px; -webkit-text-size-adjust: 100%; }
-body {
-  font-family: var(--font-sans);
-  background: var(--cream);
-  color: var(--ink);
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow-x: hidden;
-}
-
-/* ===== LOTUS SVG BACKGROUNDS ===== */
-.lotus-bg {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-.lotus-bg svg {
-  position: absolute;
-  opacity: 0.04;
-}
-.lotus-bg .lotus-tl { top: -40px; left: -40px; width: 280px; height: 280px; transform: rotate(-15deg); }
-.lotus-bg .lotus-br { bottom: -60px; right: -40px; width: 340px; height: 340px; transform: rotate(20deg); }
-.lotus-bg .lotus-mr { top: 30%; right: -80px; width: 200px; height: 200px; transform: rotate(10deg); opacity: 0.025; }
-
-/* ===== LAYOUT ===== */
-.app-container {
-  position: relative;
-  z-index: 1;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 20px 16px 40px;
-  min-height: 100vh;
-  min-height: 100dvh;
-}
-
-/* ===== HEADER ===== */
-.header {
-  text-align: center;
-  padding: 20px 0 16px;
-}
-.header-lotus {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 12px;
-}
-.header-lotus svg {
-  width: 100%;
-  height: 100%;
-}
-.header h1 {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-}
-.header .subtitle {
-  font-size: 0.78rem;
-  color: var(--gold-dark);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-top: 4px;
-  font-weight: 500;
-}
-
-/* ===== AUDIO PLAYER ===== */
-.audio-section {
-  margin: 12px 0 16px;
-  text-align: center;
-}
-.audio-section audio {
-  width: 100%;
-  max-width: 400px;
-  height: 42px;
-  border-radius: 24px;
-}
-
-/* ===== SESSION STATS ===== */
-.session-bar {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px 0 6px;
-  font-size: 0.82rem;
-  color: var(--ink-light);
-  letter-spacing: 0.05em;
-}
-.session-bar span { display: flex; align-items: center; gap: 4px; }
-.session-bar .dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  display: inline-block;
-}
-.dot-streak { background: var(--gold); }
-.dot-accuracy { background: var(--jade); }
-.dot-session { background: var(--ruby); }
-
-/* ===== NAV TABS ===== */
-.nav {
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  background: var(--cream-dark);
-  border-radius: 12px;
-  margin-bottom: 20px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.nav::-webkit-scrollbar { display: none; }
-.nav-btn {
-  flex: 1;
-  min-width: 0;
-  padding: 10px 8px;
-  border: none;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--ink-light);
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  white-space: nowrap;
-  text-align: center;
-  -webkit-tap-highlight-color: transparent;
-}
-.nav-btn.active {
-  background: white;
-  color: var(--ink);
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(26,26,46,0.08);
-}
-.nav-btn .nav-icon {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 2px;
-}
-
-/* ===== CARD ===== */
-.card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 28px 22px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(201,168,76,0.1);
-  animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== RCIENCE BADGE ===== */
-.science-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
-  border-radius: 20px;
-  font-size: 0.75rem;
-  color: var(--ink-light);
-  margin-bottom: 16px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-}
-.science-badge .sci-icon { font-size: 0.8rem; }
-
-/* ===== PRAYER LINES ===== */
-.prayer-line {
-  text-align: center;
-  padding: 10px 0;
-}
-.prayer-line .tibetan {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-.prayer-line .english {
-  font-size: 1rem;
-  color: var(--ink-light);
-  font-style: italic;
-  margin-top: 4px;
-  line-height: 1.5;
-}
-.prayer-line.mantra .tibetan {
-  color: var(--gold-dark);
-  font-size: 1.35rem;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-}
-.prayer-divider {
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
-  margin: 6px auto;
-}
-
-/* ===== BUTTONS ===== */
-.btn {
-  padding: 13px 26px;
-  border: none;
-  border-radius: 10px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  -webkit-tap-highlight-color: transparent;
-}
-.btn-primary {
-  background: var(--ink);
-  color: white;
-}
-.btn-primary:hover { background: var(--ink-light); }
-.btn-primary:disabled { background: #ccc; cursor: default; }
-.btn-secondary {
-  background: var(--cream);
-  color: var(--ink);
-  border: 1px solid #ddd;
-}
-.btn-secondary:hover { background: var(--cream-dark); }
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: white;
-}
-.btn-gold:hover { filter: brightness(1.05); }
-.btn-ghost {
-  background: transparent;
-  color: var(--ink-light);
-  padding: 8px 16px;
-  font-size: 0.82rem;
-}
-.btn-ghost:hover { color: var(--ink); background: var(--cream); }
-.btn-row { display: flex; gap: 10px; justify-content: center; margin-top: 24px; }
-
-/* ===== LEVEL SELECTOR ===== */
-.level-row {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-.level-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid #e0d8cc;
-  background: white;
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--ink-light);
-  cursor: pointer;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.level-btn.active {
-  border-color: var(--gold);
-  background: linear-gradient(135deg, #fdf6e3, #fcecc8);
-  color: var(--gold-dark);
-  font-weight: 700;
-}
-
-/* ===== PROGRESS DOTS ===== */
-.progress-row {
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.progress-pip {
-  height: 4px;
-  border-radius: 2px;
-  transition: var(--transition);
-}
-.progress-pip.done { background: var(--gold); }
-.progress-pip.current { background: var(--ink); }
-.progress-pip.upcoming { background: #e0d8cc; }
-
-/* ===== INPUT ===== */
-.text-input {
-  padding: 14px 18px;
-  border: 2px solid #e0d8cc;
-  border-radius: 10px;
-  font-family: var(--font-sans);
-  font-size: 1.1rem;
-  width: 100%;
-  max-width: 320px;
-  text-align: center;
-  outline: none;
-  transition: var(--transition);
-  color: var(--ink);
-  background: var(--parchment);
-}
-.text-input:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
-}
-
-/* ===== FEEDBACK ===== */
-.feedback {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 10px 0;
-  padding: 8px 16px;
-  border-radius: 8px;
-  display: inline-block;
-}
-.feedback-correct { color: var(--correct); background: #e8f5ed; }
-.feedback-incorrect { color: var(--incorrect); background: #fde8e8; }
-
-/* ===== BLANK WORD ===== */
-.blank-slot {
-  display: inline-block;
-  border-bottom: 3px solid var(--gold);
-  min-width: 70px;
-  padding: 2px 6px;
-  margin: 0 2px;
-  border-radius: 3px;
-  transition: var(--transition);
-  font-weight: 700;
-}
-.blank-slot.revealed { background: #fdf6e3; color: var(--gold-dark); }
-.blank-slot.correct-reveal { background: #e8f5ed; color: var(--correct); }
-.blank-slot.incorrect-reveal { background: #fff3e0; color: var(--incorrect); }
-
-/* ===== ORDER BUTTONS ===== */
-.order-btn {
-  display: block;
-  width: 100%;
-  padding: 16px 18px;
-  margin-bottom: 8px;
-  border: 1.5px solid #e0d8cc;
-  border-radius: 10px;
-  background: white;
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--ink);
-  cursor: pointer;
-  text-align: center;
-  transition: var(--transition);
-}
-.order-btn:hover { border-color: var(--gold); background: #fdfbf5; }
-.order-btn.wrong { border-color: var(--incorrect); background: #fde8e8; }
-.placed-line {
-  padding: 6px 0;
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--correct);
-  text-align: center;
-}
-
-/* ===== MATCH COLUMNS ===== */
-.match-container { display: flex; flex-direction: column; gap: 8px; }
-.match-item {
-  padding: 14px 16px;
-  border: 1.5px solid #e0d8cc;
-  border-radius: 10px;
-  background: white;
-  font-size: 1.02rem;
-  cursor: pointer;
-  transition: var(--transition);
-  text-align: center;
-}
-.match-item:hover { border-color: var(--gold); }
-.match-item.selected { border-color: var(--gold); background: #fdf6e3; box-shadow: 0 0 0 2px rgba(201,168,76,0.2); }
-.match-item.matched { border-color: var(--correct); background: #e8f5ed; color: var(--correct); opacity: 0.7; cursor: default; }
-.match-item.wrong-flash { border-color: var(--incorrect); background: #fde8e8; }
-.match-item.tibetan-text { font-family: var(--font-serif); font-weight: 600; }
-.match-item.english-text { font-style: italic; color: var(--ink-light); }
-.match-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-light);
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-/* ===== RECITE MODE ===== */
-.recite-counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 16px 0;
-}
-.count-display {
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--gold-dark);
-  min-width: 60px;
-  text-align: center;
-}
-.mala-progress {
-  text-align: center;
-  margin-top: 12px;
-}
-.mala-bar {
-  width: 100%;
-  height: 6px;
-  background: var(--cream-dark);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-top: 6px;
-}
-.mala-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
-  border-radius: 3px;
-  transition: width 0.4s ease;
-}
-
-/* ===== REVEAL BUTTON ===== */
-.reveal-btn {
-  padding: 12px 28px;
-  background: var(--cream);
-  border: 2px dashed #d4c5b0;
-  border-radius: 10px;
-  color: var(--ink-light);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  transition: var(--transition);
-}
-.reveal-btn:hover { border-color: var(--gold); background: #fdf6e3; }
-
-/* ===== FIRST-LETTER HINT ===== */
-.hint-word {
-  font-family: var(--font-serif);
-  display: inline;
-  letter-spacing: 0.02em;
-}
-.hint-visible { color: var(--ink); font-weight: 600; }
-.hint-hidden { color: #ccc; }
-
-/* ===== FOOTER ===== */
-.footer {
-  text-align: center;
-  margin-top: 28px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(201,168,76,0.15);
-  font-size: 0.7rem;
-  color: #b8a88a;
-  line-height: 1.6;
-}
-
-/* ===== HELPER ===== */
-.text-center { text-align: center; }
-.mt-8 { margin-top: 8px; }
-.mt-12 { margin-top: 12px; }
-.mt-16 { margin-top: 16px; }
-.mt-20 { margin-top: 20px; }
-.mb-8 { margin-bottom: 8px; }
-.mb-12 { margin-bottom: 12px; }
-.mb-16 { margin-bottom: 16px; }
-.mb-20 { margin-bottom: 20px; }
-.hint-text { font-size: 0.88rem; color: var(--ink-light); }
-.small-label { font-size: 0.82rem; color: var(--ink-light); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 400px) {
-  .app-container { padding: 12px 10px 32px; }
-  .card { padding: 22px 16px; }
-  .header h1 { font-size: 1.35rem; }
-  .prayer-line .tibetan { font-size: 1.15rem; }
-  .prayer-line .english { font-size: 0.92rem; }
-  .nav-btn { padding: 8px 4px; font-size: 0.74rem; }
-}
-</style>
-</head>
-<body>
-
-<!-- Lotus background decoration -->
-<div class="lotus-bg">
-  <svg class="lotus-tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" stroke="#c9a84c" stroke-width="1.2">
-      <ellipse cx="100" cy="100" rx="30" ry="70" transform="rotate(0 100 100)"/>
-      <ellipse cx="100" cy="100" rx="30" ry="70" transform="rotate(30 100 100)"/>
-      <ellipse cx="100" cy="100" rx="30" ry="70" transform="rotate(60 100 100)"/>
-      <ellipse cx="100" cy="100" rx="30" ry="70" transform="rotate(90 100 100)"/>
-      <ellipse cx="100" cy="100" rx="30" ry="70" transform="rotate(120 100 100)"/>
-      <ellipse cx="100" cy="100" rx="30" ry="70" transform="rotate(150 100 100)"/>
-      <circle cx="100" cy="100" r="18"/>
-    </g>
-  </svg>
-  <svg class="lotus-br" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" stroke="#c9a84c" stroke-width="1">
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(0 100 100)"/>
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(25.7 100 100)"/>
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(51.4 100 100)"/>
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(77.1 100 100)"/>
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(102.8 100 100)"/>
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(128.5 100 100)"/>
-      <ellipse cx="100" cy="100" rx="28" ry="65" transform="rotate(154.2 100 100)"/>
-      <circle cx="100" cy="100" r="16"/>
-    </g>
-  </svg>
-  <svg class="lotus-mr" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" stroke="#c9a84c" stroke-width="1.5">
-      <ellipse cx="100" cy="100" rx="25" ry="60" transform="rotate(0 100 100)"/>
-      <ellipse cx="100" cy="100" rx="25" ry="60" transform="rotate(45 100 100)"/>
-      <ellipse cx="100" cy="100" rx="25" ry="60" transform="rotate(90 100 100)"/>
-      <ellipse cx="100" cy="100" rx="25" ry="60" transform="rotate(135 100 100)"/>
-      <circle cx="100" cy="100" r="14"/>
-    </g>
-  </svg>
-</div>
-
-<div class="app-container" id="app"></div>
-
-<script>
-// ===== DATA =====
-const PRAYER_LINES = [
-  { tibetan: "HUNG", english: "", isMantra: true },
-  { tibetan: "Ãgyen yulgyi nupchang tsam", english: "In the north-west of the country of Uddiyana," },
-  { tibetan: "PÃ©ma kÃ©sar dongpo la", english: "In the heart of a lotus flower," },
-  { tibetan: "Yamtsen chokgi ngÃ¶drup nyÃ©", english: "You are endowed with the supreme, wondrous siddhis," },
-  { tibetan: "PÃ©ma jungne shyÃ©su drak", english: "And are renowned as the Lotus Born." },
-  { tibetan: "Khordu khandro mangpÃ¶ kor", english: "Surrounded by a host of many dakinis" },
-  { tibetan: "ChyÃ©chyi jÃ©su dagdrup kyi", english: "I will practice by following your example." },
-  { tibetan: "Chingyi lapchir sheksu sol", english: "Please approach and grant your blessings!" },
-  { tibetan: "GURU PÃMA SIDDHI HUNG", english: "", isMantra: true },
-];
-const CONTENT_LINES = PRAYER_LINES.filter(l => !l.isMantra);
-const VAJRA_MANTRA = "OM AH HUNG BENZAR GURU PEMA SIDDHI HUNG";
-const AUDIO_SRC = "";
-
-// ===== STATE =====
-let state = {
-  audioUrl: AUDIO_SRC || null,
-  mode: 'read',
-  // Session tracking
-  streak: 0,
-  correct: 0,
-  total: 0,
-  sessionReps: 0,
-  // Fade
-  fadeLevel: 0,
-  // Line-by-line
-  currentLine: 0,
-  showTibetan: true,
-  showEnglish: false,
-  showHint: false,
-  // Fill blank
-  fillLine: 0,
-  fillBlankIdx: null,
-  fillInput: '',
-  fillResult: null,
-  fillUsedHint: false,
-  // Order
-  orderShuffled: [],
-  orderPlaced: [],
-  orderWrong: null,
-  orderComplete: false,
-  // Match
-  matchTibetanOrder: [],
-  matchEnglishOrder: [],
-  matchSelected: null,
-  matchSelectedType: null,
-  matchMatched: [],
-  matchWrongFlash: null,
-  matchComplete: false,
-  // Recite
-  reciteCount: 0,
-  reciteShowText: true,
-  // Spaced review queue
-  srQueue: [],
-  srCurrent: null,
-  srShowAnswer: false,
-  srSessionDone: false,
-};
-
-// ===== UTILITY =====
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-function getAccuracy() {
-  return state.total === 0 ? 100 : Math.round((state.correct / state.total) * 100);
-}
-
-// ===== LOTUS SVG (inline for header) =====
-function lotusHeaderSVG() {
-  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#e8d48b"/>
-        <stop offset="100%" style="stop-color:#c9a84c"/>
-      </linearGradient>
-    </defs>
-    <g fill="none" stroke="url(#lg)" stroke-width="1.8" opacity="0.9">
-      <!-- Petals -->
-      <path d="M50,15 Q55,35 50,50 Q45,35 50,15" fill="rgba(201,168,76,0.08)"/>
-      <path d="M50,85 Q55,65 50,50 Q45,65 50,85" fill="rgba(201,168,76,0.08)"/>
-      <path d="M15,50 Q35,45 50,50 Q35,55 15,50" fill="rgba(201,168,76,0.08)"/>
-      <path d="M85,50 Q65,45 50,50 Q65,55 85,50" fill="rgba(201,168,76,0.08)"/>
-      <path d="M25,25 Q40,38 50,50 Q38,40 25,25" fill="rgba(201,168,76,0.06)"/>
-      <path d="M75,25 Q60,38 50,50 Q62,40 75,25" fill="rgba(201,168,76,0.06)"/>
-      <path d="M25,75 Q40,62 50,50 Q38,60 25,75" fill="rgba(201,168,76,0.06)"/>
-      <path d="M75,75 Q60,62 50,50 Q62,60 75,75" fill="rgba(201,168,76,0.06)"/>
-      <!-- Center -->
-      <circle cx="50" cy="50" r="8" fill="rgba(201,168,76,0.12)"/>
-      <circle cx="50" cy="50" r="3" fill="rgba(201,168,76,0.3)"/>
-    </g>
-  </svg>`;
-}
-
-// ===== SPACED REPETITION ENGINE =====
-// Simple Leitner-style boxes within a session
-function initSRQueue() {
-  state.srQueue = CONTENT_LINES.map((l, i) => ({
-    index: i,
-    box: 0, // 0=new, 1=learning, 2=familiar, 3=known
-    nextReview: 0, // turn number
-  }));
-  state.srCurrent = null;
-  state.srShowAnswer = false;
-  state.srSessionDone = false;
-  pickNextSR();
-}
-
-function pickNextSR() {
-  const due = state.srQueue.filter(c => c.box < 3).sort((a, b) => {
-    if (a.box !== b.box) return a.box - b.box;
-    return a.nextReview - b.nextReview;
-  });
-  if (due.length === 0) {
-    state.srSessionDone = true;
-    state.srCurrent = null;
-  } else {
-    state.srCurrent = due[0];
-    state.srShowAnswer = false;
-  }
-}
-
-function gradeSR(correct) {
-  const card = state.srCurrent;
-  if (correct) {
-    card.box = Math.min(card.box + 1, 3);
-    card.nextReview = state.total + (card.box * 3);
-    state.correct++;
-    state.streak++;
-  } else {
-    card.box = Math.max(card.box - 1, 0);
-    card.nextReview = state.total + 1;
-    state.streak = 0;
-  }
-  state.total++;
-  pickNextSR();
-}
-
-// ===== RENDER =====
-function render() {
-  const app = document.getElementById('app');
-  app.innerHTML = `
-    ${renderHeader()}
-    ${renderAudio()}
-    ${renderSessionBar()}
-    ${renderNav()}
-    <div class="card">${renderMode()}</div>
-    ${renderFooter()}
-  `;
-  attachEvents();
-}
-
-function renderHeader() {
-  return `
-    <div class="header">
-      <div class="header-lotus">${lotusHeaderSVG()}</div>
-      <h1>Seven-Line Supplication</h1>
-      <div class="subtitle">Prayer to Guru Rinpoche</div>
-    </div>
-  `;
-}
-
-function renderAudio() {
-  if (state.audioUrl) {
-    return `
-      <div class="audio-section">
-        <audio controls src="${state.audioUrl}" preload="metadata" id="mainAudio"></audio>
-      </div>
-    `;
-  }
-  return `
-    <div class="audio-section">
-      <div class="text-center">
-        <label style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--ink);color:white;border-radius:10px;cursor:pointer;font-size:0.9rem;font-weight:600;font-family:var(--font-sans)">
-          âª Load Audio Recording
-          <input type="file" accept="audio/*" id="audioFileInput" style="display:none" />
-        </label>
-        <div class="hint-text mt-8">Load the .WAV or .MP3 recitation to listen while you practice</div>
-      </div>
-    </div>
-  `;
-}
-
-function renderSessionBar() {
-  return `
-    <div class="session-bar">
-      <span><span class="dot dot-streak"></span> Streak: ${state.streak}</span>
-      <span><span class="dot dot-accuracy"></span> Accuracy: ${getAccuracy()}%</span>
-      <span><span class="dot dot-session"></span> Recitations: ${state.sessionReps}</span>
-    </div>
-  `;
-}
-
-function renderNav() {
-  const modes = [
-    { id: 'read', icon: 'ð', label: 'Study' },
-    { id: 'fade', icon: 'ð«', label: 'Fade' },
-    { id: 'hints', icon: 'ð¡', label: 'Hints' },
-    { id: 'fill', icon: 'âï¸', label: 'Recall' },
-    { id: 'match', icon: 'ð', label: 'Match' },
-    { id: 'order', icon: 'ð', label: 'Order' },
-    { id: 'spaced', icon: 'ð§ ', label: 'Review' },
-    { id: 'recite', icon: 'ð', label: 'Recite' },
-  ];
-  return `
-    <div class="nav">
-      ${modes.map(m => `
-        <button class="nav-btn ${state.mode === m.id ? 'active' : ''}" data-mode="${m.id}">
-          <span class="nav-icon">${m.icon}</span>${m.label}
-        </button>
-      `).join('')}
-    </div>
-  `;
-}
-
-function renderMode() {
-  switch (state.mode) {
-    case 'read': return renderRead();
-    case 'fade': return renderFade();
-    case 'hints': return renderHints();
-    case 'fill': return renderFill();
-    case 'match': return renderMatch();
-    case 'order': return renderOrder();
-    case 'spaced': return renderSpaced();
-    case 'recite': return renderRecite();
-    default: return renderRead();
-  }
-}
-
-// ===== READ MODE =====
-function renderRead() {
-  return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Multi-modal encoding â read, listen, absorb</div>
-    ${PRAYER_LINES.map((l, i) => `
-      <div class="prayer-line ${l.isMantra ? 'mantra' : ''}">
-        <div class="tibetan">${l.tibetan}</div>
-        ${l.english ? `<div class="english">${l.english}</div>` : ''}
-      </div>
-      ${i === 0 ? '<div class="prayer-divider"></div>' : ''}
-      ${i === PRAYER_LINES.length - 2 ? '<div class="prayer-divider"></div>' : ''}
-    `).join('')}
-    <div class="prayer-divider" style="margin-top:12px"></div>
-    <div class="prayer-line mantra">
-      <div class="small-label mb-8">Vajra Guru Mantra</div>
-      <div class="tibetan">${VAJRA_MANTRA}</div>
-    </div>
-  `;
-}
-
-// ===== FADE MODE =====
-function renderFade() {
-  const maxLevel = 6;
-  return `
-    <div class="science-badge"><span class="sci-icon">ð§ª</span> Desirable difficulty â progressive cue removal</div>
-    <div class="text-center mb-12 hint-text">Level ${state.fadeLevel}: ${
-      state.fadeLevel === 0 ? 'Full text visible' :
-      state.fadeLevel <= 2 ? 'Words beginning to fade' :
-      state.fadeLevel <= 4 ? 'Most words hidden' :
-      state.fadeLevel === 5 ? 'English hints removed' :
-      'Full recall mode'
-    }</div>
-    <div class="level-row">
-      ${Array.from({length: maxLevel + 1}, (_, i) => `
-        <button class="level-btn ${state.fadeLevel === i ? 'active' : ''}" data-fade="${i}">
-          ${i === 0 ? 'â' : i === maxLevel ? 'ð' : i}
-        </button>
-      `).join('')}
-    </div>
-    ${PRAYER_LINES.map((l, li) => {
-      if (l.isMantra) {
-        return `<div class="prayer-line mantra"><div class="tibetan">${l.tibetan}</div></div>`;
-      }
-      const words = l.tibetan.split(' ');
-      const wordHtml = words.map((w, wi) => {
-        const frac = (wi + 1) / words.length;
-        const threshold = state.fadeLevel / maxLevel;
-        let opacity = 1;
-        if (frac <= threshold) opacity = 0;
-        else if (frac <= threshold + 0.15) opacity = (frac - threshold) / 0.15;
-        return `<span style="opacity:${opacity};transition:opacity 0.4s">${w}</span>`;
-      }).join(' ');
-      const showEng = state.fadeLevel < 5;
-      return `
-        <div class="prayer-line">
-          <div class="tibetan">${wordHtml}</div>
-          ${l.english ? `<div class="english" style="opacity:${showEng ? 1 : 0};transition:opacity 0.4s">${l.english}</div>` : ''}
-        </div>
-      `;
-    }).join('')}
-    <div class="text-center mt-16 hint-text">Increase the level to hide more words. Recite aloud from memory.</div>
-  `;
-}
-
-// ===== FIRST-LETTER HINTS MODE =====
-function renderHints() {
-  return `
-    <div class="science-badge"><span class="sci-icon">ð¤</span> Retrieval cues â first-letter prompting</div>
-    <div class="text-center mb-16 hint-text">Only the first letter of each word is shown. Try to recall the full words aloud.</div>
-    ${PRAYER_LINES.map((l, li) => {
-      if (l.isMantra) {
-        return `<div class="prayer-line mantra"><div class="tibetan">${l.tibetan}</div></div>`;
-      }
-      const words = l.tibetan.split(' ');
-      const hintHtml = words.map(w => {
-        return `<span class="hint-word"><span class="hint-visible">${w[0]}</span><span class="hint-hidden">${'Â·'.repeat(w.length - 1)}</span></span>`;
-      }).join('&nbsp; ');
-      return `
-        <div class="prayer-line">
-          <div class="tibetan" style="font-size:1.25rem;letter-spacing:0.04em">${hintHtml}</div>
-          <div class="english">${l.english}</div>
-        </div>
-      `;
-    }).join('')}
-    <div class="btn-row">
-      <button class="btn btn-secondary" data-action="toggle-hint-reveal" id="hintRevealBtn">
-        ${state.showHint ? 'Hide Full Text' : 'Reveal Full Text'}
-      </button>
-    </div>
-    ${state.showHint ? `
-      <div style="margin-top:16px;padding:16px;background:var(--cream);border-radius:10px">
-        ${CONTENT_LINES.map(l => `
-          <div style="text-align:center;padding:4px 0;font-family:var(--font-serif);font-size:0.9rem;color:var(--ink-light)">${l.tibetan}</div>
-        `).join('')}
-      </div>
-    ` : ''}
-  `;
-}
-
-// ===== FILL BLANK (RETRIEVAL PRACTICE) =====
-function renderFill() {
-  if (state.fillBlankIdx === null) initFill();
-  const line = CONTENT_LINES[state.fillLine];
-  const words = line.tibetan.split(' ');
-  const bi = state.fillBlankIdx;
-
-  const wordHtml = words.map((w, i) => {
-    if (i === bi) {
-      let cls = 'blank-slot';
-      if (state.fillResult === 'correct') cls += ' correct-reveal';
-      else if (state.fillResult === 'incorrect') cls += ' incorrect-reveal';
-      return `<span class="${cls}">${state.fillResult ? w : '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'}</span>`;
-    }
-    return w;
-  }).join(' ');
-
-  return `
-    <div class="science-badge"><span class="sci-icon">ð§ </span> Retrieval practice â active recall of missing words</div>
-    <div class="text-center mb-16">
-      <div class="english" style="font-size:0.9rem">${line.english}</div>
-    </div>
-    <div class="text-center mb-20">
-      <div class="tibetan" style="font-size:1.2rem;line-height:1.8;font-family:var(--font-serif);font-weight:600">${wordHtml}</div>
-    </div>
-    ${!state.fillResult ? `
-      <div class="text-center">
-        <input class="text-input" id="fillInput" type="text" placeholder="Type the missing wordâ¦" value="${state.fillInput}" autocomplete="off" autocapitalize="off" spellcheck="false"/>
-        <div class="btn-row">
-          <button class="btn btn-ghost" data-action="fill-hint">Show first letter</button>
-          <button class="btn btn-primary" data-action="fill-check" ${!state.fillInput.trim() ? 'disabled' : ''}>Check</button>
-        </div>
-      </div>
-    ` : `
-      <div class="text-center">
-        <div class="feedback ${state.fillResult === 'correct' ? 'feedback-correct' : 'feedback-incorrect'}">
-          ${state.fillResult === 'correct' ? 'â Correct!' : `â The word was: ${words[bi]}`}
-        </div>
-        <div class="btn-row">
-          <button class="btn btn-primary" data-action="fill-next">Next â</button>
-        </div>
-      </div>
-    `}
-  `;
-}
-
-function initFill() {
-  const words = CONTENT_LINES[state.fillLine].tibetan.split(' ');
-  state.fillBlankIdx = Math.floor(Math.random() * words.length);
-  state.fillInput = '';
-  state.fillResult = null;
-  state.fillUsedHint = false;
-}
-
-// ===== MATCH MODE =====
-function renderMatch() {
-  if (state.matchTibetanOrder.length === 0) initMatch();
-
-  return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Elaborative encoding â connect sound to meaning</div>
-    <div class="text-center mb-16 hint-text">Tap a Tibetan line, then tap its English meaning.</div>
-    ${state.matchComplete ? `
-      <div class="text-center">
-        <div class="feedback feedback-correct" style="font-size:1.1rem">All matched correctly!</div>
-        <div class="btn-row"><button class="btn btn-primary" data-action="match-reset">Play Again</button></div>
-      </div>
-    ` : `
-      <div class="match-label">Tibetan</div>
-      <div class="match-container mb-16">
-        ${state.matchTibetanOrder.map((idx, i) => {
-          const matched = state.matchMatched.includes(idx);
-          const selected = state.matchSelectedType === 'tibetan' && state.matchSelected === idx;
-          const wrongFlash = state.matchWrongFlash === 'tibetan-' + idx;
-          return `<div class="match-item tibetan-text ${matched ? 'matched' : ''} ${selected ? 'selected' : ''} ${wrongFlash ? 'wrong-flash' : ''}"
-            data-match-type="tibetan" data-match-idx="${idx}" ${matched ? '' : ''}>
-            ${CONTENT_LINES[idx].tibetan}
-          </div>`;
-        }).join('')}
-      </div>
-      <div class="match-label">English</div>
-      <div class="match-container">
-        ${state.matchEnglishOrder.map((idx, i) => {
-          const matched = state.matchMatched.includes(idx);
-          const selected = state.matchSelectedType === 'english' && state.matchSelected === idx;
-          const wrongFlash = state.matchWrongFlash === 'english-' + idx;
-          return `<div class="match-item english-text ${matched ? 'matched' : ''} ${selected ? 'selected' : ''} ${wrongFlash ? 'wrong-flash' : ''}"
-            data-match-type="english" data-match-idx="${idx}" ${matched ? '' : ''}>
-            ${CONTENT_LINES[idx].english}
-          </div>`;
-        }).join('')}
-      </div>
-    `}
-  `;
-}
-
-function initMatch() {
-  state.matchTibetanOrder = shuffle(CONTENT_LINES.map((_, i) => i));
-  state.matchEnglishOrder = shuffle(CONTENT_LINES.map((_, i) => i));
-  state.matchSelected = null;
-  state.matchSelectedType = null;
-  state.matchMatched = [];
-  state.matchWrongFlash = null;
-  state.matchComplete = false;
-}
-
-// ===== ORDER MODE =====
-function renderOrder() {
-  if (state.orderShuffled.length === 0 && !state.orderComplete) initOrder();
-
-  return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Sequential recall â reconstruct the order</div>
-    <div class="text-center mb-16 hint-text">Tap lines in the correct order, first to last.</div>
-    ${state.orderPlaced.length > 0 ? `
-      <div style="padding:12px 16px;background:var(--cream);border-radius:10px;margin-bottom:16px">
-        ${state.orderPlaced.map((item, i) => `
-          <div class="placed-line">${i + 1}. ${item.tibetan}</div>
-        `).join('')}
-      </div>
-    ` : ''}
-    ${!state.orderComplete ? `
-      ${state.orderShuffled.map(item => `
-        <button class="order-btn ${state.orderWrong === item.origIndex ? 'wrong' : ''}"
-          data-order-idx="${item.origIndex}">
-          ${item.tibetan}
-        </button>
-      `).join('')}
-    ` : `
-      <div class="text-center">
-        <div class="feedback feedback-correct" style="font-size:1.1rem">Perfect order!</div>
-        <div class="btn-row"><button class="btn btn-primary" data-action="order-reset">Try Again</button></div>
-      </div>
-    `}
-  `;
-}
-
-function initOrder() {
-  state.orderShuffled = shuffle(CONTENT_LINES.map((l, i) => ({ ...l, origIndex: i })));
-  state.orderPlaced = [];
-  state.orderWrong = null;
-  state.orderComplete = false;
-}
-
-// ===== SPACED REVIEW =====
-function renderSpaced() {
-  if (state.srQueue.length === 0) initSRQueue();
-
-  if (state.srSessionDone) {
-    return `
-      <div class="science-badge"><span class="sci-icon">ð§ </span> Spaced retrieval â all lines reviewed!</div>
-      <div class="text-center">
-        <div style="font-size:2.5rem;margin:16px 0">ð</div>
-        <div style="font-family:var(--font-serif);font-size:1.2rem;font-weight:600;margin-bottom:8px">Session Complete</div>
-        <div class="hint-text">All 7 lines moved to "known" status. Great work.</div>
-        <div class="btn-row"><button class="btn btn-gold" data-action="sr-reset">Start New Round</button></div>
-      </div>
-    `;
-  }
-
-  const card = state.srCurrent;
-  const line = CONTENT_LINES[card.index];
-  const boxLabels = ['New', 'Learning', 'Familiar', 'Known'];
-  const boxColors = ['#999', '#e67e22', '#3498db', '#27ae60'];
-
-  // Progress display
-  const boxCounts = [0,0,0,0];
-  state.srQueue.forEach(c => boxCounts[c.box]++);
-
-  return `
-    <div class="science-badge"><span class="sci-icon">ð§ </span> Spaced retrieval â adaptive difficulty scheduling</div>
-    <div style="display:flex;gap:8px;justify-content:center;margin-bottom:16px">
-      ${boxLabels.map((label, i) => `
-        <div style="text-align:center">
-          <div style="font-size:1.1rem;font-weight:700;color:${boxColors[i]}">${boxCounts[i]}</div>
-          <div style="font-size:0.6rem;color:var(--ink-light);text-transform:uppercase;letter-spacing:0.05em">${label}</div>
-        </div>
-      `).join('')}
-    </div>
-    <div class="prayer-divider mb-16"></div>
-    <div class="text-center mb-8">
-      <span style="font-size:0.7rem;padding:3px 10px;border-radius:12px;background:${boxColors[card.box]}22;color:${boxColors[card.box]};font-weight:600">
-        ${boxLabels[card.box]}
-      </span>
-    </div>
-    <div class="text-center mb-20">
-      <div class="english" style="font-size:1rem;margin-bottom:12px">${line.english}</div>
-      <div style="font-size:0.78rem;color:var(--ink-light)">â What is the Tibetan for this line?</div>
-    </div>
-    ${state.srShowAnswer ? `
-      <div class="text-center mb-16">
-        <div class="tibetan" style="font-size:1.35rem;font-family:var(--font-serif);font-weight:600">${line.tibetan}</div>
-      </div>
-      <div class="text-center hint-text mb-12">How well did you recall it?</div>
-      <div class="btn-row">
-        <button class="btn btn-secondary" data-action="sr-grade" data-grade="0" style="border-color:#e74c3c;color:#e74c3c">Forgot</button>
-        <button class="btn btn-primary" data-action="sr-grade" data-grade="1">Got It</button>
-      </div>
-    ` : `
-      <div class="text-center">
-        <button class="btn btn-gold" data-action="sr-show" style="padding:14px 40px;font-size:1rem">Reveal Answer</button>
-      </div>
-    `}
-  `;
-}
-
-// ===== RECITE MODE =====
-function renderRecite() {
-  const malaTarget = 21;
-  const malaProgress = Math.min(state.reciteCount / malaTarget * 100, 100);
-
-  return `
-    <div class="science-badge"><span class="sci-icon">ð</span> Focused recitation â intentional, embodied practice</div>
-    <div class="text-center mb-12 hint-text">
-      Recite aloud with devotion. Tap the lotus after each recitation.
-    </div>
-    ${state.reciteShowText ? `
-      ${PRAYER_LINES.map(l => `
-        <div class="prayer-line ${l.isMantra ? 'mantra' : ''}">
-          <div class="tibetan">${l.tibetan}</div>
-        </div>
-      `).join('')}
-      <div class="prayer-divider" style="margin:8px auto"></div>
-      <div class="prayer-line mantra"><div class="tibetan" style="font-size:1rem">${VAJRA_MANTRA}</div></div>
-    ` : `
-      <div class="text-center" style="padding:30px 0">
-        <div style="font-family:var(--font-serif);font-size:1.1rem;color:var(--ink-light);font-style:italic">
-          Text hidden â recite from memory
-        </div>
-      </div>
-    `}
-    <div class="recite-counter mt-20">
-      <button class="btn btn-secondary" data-action="recite-toggle-text" style="font-size:0.78rem;padding:8px 14px">
-        ${state.reciteShowText ? 'Hide Text' : 'Show Text'}
-      </button>
-      <div style="cursor:pointer;user-select:none" data-action="recite-increment" title="Tap to count">
-        <svg width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" stroke="var(--gold)" stroke-width="2.5">
-            <ellipse cx="50" cy="50" rx="20" ry="40" transform="rotate(0 50 50)" fill="rgba(201,168,76,0.06)"/>
-            <ellipse cx="50" cy="50" rx="20" ry="40" transform="rotate(60 50 50)" fill="rgba(201,168,76,0.06)"/>
-            <ellipse cx="50" cy="50" rx="20" ry="40" transform="rotate(120 50 50)" fill="rgba(201,168,76,0.06)"/>
-            <circle cx="50" cy="50" r="10" fill="rgba(201,168,76,0.15)"/>
-          </g>
-        </svg>
-      </div>
-      <div class="count-display">${state.reciteCount}</div>
-    </div>
-    <div class="mala-progress">
-      <div class="hint-text">${state.reciteCount} / ${malaTarget} recitations (one mala round = 21)</div>
-      <div class="mala-bar"><div class="mala-fill" style="width:${malaProgress}%"></div></div>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-ghost" data-action="recite-reset">Reset Count</button>
-    </div>
-  `;
-}
-
-// ===== FOOTER =====
-function renderFooter() {
-  return `
-    <div class="footer">
-      Based on Bill's recommended interpretation<br>
-      Built with retrieval practice, spaced repetition & desirable difficulties
-    </div>
-  `;
-}
-
-// ===== EVENT HANDLING =====
-function attachEvents() {
-  // Audio file input
-  const audioInput = document.getElementById('audioFileInput');
-  if (audioInput) {
-    audioInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        state.audioUrl = URL.createObjectURL(file);
-        render();
-      }
-    });
-  }
-
-  // Nav buttons
-  document.querySelectorAll('.nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.mode = btn.dataset.mode;
-      // Reset mode-specific state
-      if (state.mode === 'fill') initFill();
-      if (state.mode === 'match') initMatch();
-      if (state.mode === 'order') initOrder();
-      render();
-    });
-  });
-
-  // Fade level buttons
-  document.querySelectorAll('[data-fade]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.fadeLevel = parseInt(btn.dataset.fade);
-      render();
-    });
-  });
-
-  // Fill blank input
-  const fillInput = document.getElementById('fillInput');
-  if (fillInput) {
-    fillInput.addEventListener('input', (e) => { state.fillInput = e.target.value; });
-    fillInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && state.fillInput.trim()) handleFillCheck();
-    });
-    fillInput.focus();
-  }
-
-  // Action buttons
-  document.querySelectorAll('[data-action]').forEach(el => {
-    el.addEventListener('click', () => handleAction(el.dataset.action, el));
-  });
-
-  // Match items
-  document.querySelectorAll('[data-match-type]').forEach(el => {
-    el.addEventListener('click', () => handleMatchClick(el.dataset.matchType, parseInt(el.dataset.matchIdx)));
-  });
-
-  // Order buttons
-  document.querySelectorAll('[data-order-idx]').forEach(el => {
-    el.addEventListener('click', () => handleOrderClick(parseInt(el.dataset.orderIdx)));
-  });
-}
-
-function handleAction(action, el) {
-  switch (action) {
-    case 'fill-check': handleFillCheck(); break;
-    case 'fill-hint': handleFillHint(); break;
-    case 'fill-next':
-      state.fillLine = (state.fillLine + 1) % CONTENT_LINES.length;
-      initFill();
-      render();
-      break;
-    case 'match-reset': initMatch(); render(); break;
-    case 'order-reset': initOrder(); render(); break;
-    case 'toggle-hint-reveal':
-      state.showHint = !state.showHint;
-      render();
-      break;
-    case 'sr-show':
-      state.srShowAnswer = true;
-      render();
-      break;
-    case 'sr-grade':
-      gradeSR(el.dataset.grade === '1');
-      render();
-      break;
-    case 'sr-reset':
-      initSRQueue();
-      render();
-      break;
-    case 'recite-increment':
-      state.reciteCount++;
-      state.sessionReps++;
-      render();
-      break;
-    case 'recite-toggle-text':
-      state.reciteShowText = !state.reciteShowText;
-      render();
-      break;
-    case 'recite-reset':
-      state.reciteCount = 0;
-      render();
-      break;
-  }
-}
-
-function handleFillCheck() {
-  const line = CONTENT_LINES[state.fillLine];
-  const words = line.tibetan.split(' ');
-  const target = words[state.fillBlankIdx].toLowerCase();
-  const input = state.fillInput.trim().toLowerCase();
-  const correct = input === target;
-  state.fillResult = correct ? 'correct' : 'incorrect';
-  if (correct) { state.correct++; state.streak++; }
-  else { state.streak = 0; }
-  state.total++;
-  render();
-}
-
-function handleFillHint() {
-  const line = CONTENT_LINES[state.fillLine];
-  const words = line.tibetan.split(' ');
-  const target = words[state.fillBlankIdx];
-  state.fillInput = target[0];
-  state.fillUsedHint = true;
-  render();
-  const inp = document.getElementById('fillInput');
-  if (inp) inp.focus();
-}
-
-function handleMatchClick(type, idx) {
-  if (state.matchMatched.includes(idx) && type === 'tibetan') return;
-  if (state.matchMatched.includes(idx) && type === 'english') return;
-
-  if (state.matchSelected === null) {
-    state.matchSelected = idx;
-    state.matchSelectedType = type;
-  } else {
-    if (state.matchSelectedType === type) {
-      // Same column â switch selection
-      state.matchSelected = idx;
-    } else {
-      // Different columns â check match
+      // Different columns — check match
       const tibIdx = type === 'tibetan' ? idx : state.matchSelected;
       const engIdx = type === 'english' ? idx : state.matchSelected;
       if (tibIdx === engIdx) {
