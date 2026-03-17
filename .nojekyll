@@ -1,0 +1,2 @@
+# Tells GitHub Pages NOT to process this as a Jekyll site
+# This ensures all files (including those starting with _) are served as-is
