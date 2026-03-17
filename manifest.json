@@ -1,0 +1,19 @@
+{
+  "name": "Seven-Line Supplication",
+  "short_name": "7-Line Prayer",
+  "description": "Interactive memorization app for the Seven-Line Prayer to Guru Rinpoche with 8 practice modes",
+  "start_url": "/seven-line-prayer/",
+  "scope": "/seven-line-prayer/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FDF8EE",
+  "theme_color": "#6B1D3A",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
